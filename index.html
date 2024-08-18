@@ -120,7 +120,7 @@ var svg = d3.select("body")
 
 
 // Load in my states data!
-d3.csv("https://raw.githubusercontent.com/gcdean38/election-forecast/main/simulation_results.csv", function(d) {
+d3.csv("https://raw.githubusercontent.com/gcdean38/election-forecast/main/simulation_results_8_18_2024.csv", function(d) {
 ; // setting the range of the input data
 return { state: d.state, dem_win: +d.dem_win,}
       },function(data) {
@@ -160,7 +160,7 @@ for (var i = 0; i < data.length; i++) {
 			.style("stroke-width","2px")             
     		.style("opacity", 0);
 console.log(data)
-color.domain([5,15])
+color.domain([0,1])
 formatNum = d3.format(",.2f")
 formatPct = d3.format(".2%")
 
