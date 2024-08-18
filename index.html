@@ -120,9 +120,9 @@ var svg = d3.select("body")
 
 
 // Load in my states data!
-d3.csv("https://raw.githubusercontent.com/gcdean38/maneater/master/minimumWage.csv", function(d) {
+d3.csv("https://raw.githubusercontent.com/gcdean38/election-forecast/main/simulation_results.csv", function(d) {
 ; // setting the range of the input data
-return { States: d.States, minimumWage: +d.minimumWage}
+return { state: d.state, dem_win: +d.dem_win,}
       },function(data) {
 // Load GeoJSON data and merge with states data
 d3.json("https://gist.githubusercontent.com/michellechandra/0b2ce4923dc9b5809922/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json", function(json) {
@@ -131,11 +131,11 @@ d3.json("https://gist.githubusercontent.com/michellechandra/0b2ce4923dc9b5809922
 for (var i = 0; i < data.length; i++) {
 
 	// Grab State Name
-	var dataState = data[i].States;
+	var dataState = data[i].state;
 
 	// Grab data value 
 	
- var dataStatus = data[i].minimumWage
+ var dataStatus = data[i].dem_win
 
 	// Find the corresponding state inside the GeoJSON
 	for (var j = 0; j < json.features.length; j++)  {
@@ -144,7 +144,7 @@ for (var i = 0; i < data.length; i++) {
 		if (dataState == jsonState) {
 
 		// Copy the data value into the JSON
-		json.features[j].properties.minimumWage = dataStatus
+		json.features[j].properties.dem_win = dataStatus
 
 		// Stop looking through the JSON
 		break;
@@ -169,7 +169,7 @@ formatPct = d3.format(".2%")
 var mousemove = function(d){
   tooltip
           .style("opacity", 1)
-          .html("<b>"+(d.properties.name)+"'s</b> minimum wage is <b>$"+formatNum(d.properties.minimumWage)+"</b>/hour.")
+          .html("<b>"+(d.properties.name)+"'s</b> minimum wage is <b>$"+formatNum(d.properties.dem_win)+"</b>/hour.")
           .style("left", (d3.mouse(this)[0]+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
           .style("top", (d3.mouse(this)[1]-30) + "px")
 		  
@@ -199,12 +199,12 @@ svg.selectAll("path")
 	.style("fill", function(d) {
 
 	// Get data value
-	var minimumWage = d.properties.minimumWage;
+	var dem_win = d.properties.dem_win;
 //var cat = d.properties.cat;
 
-	if (minimumWage) {
+	if (dem_win) {
 	//If value exists…
-	return color(minimumWage);
+	return color(dem_win);
 	} else {
 	//If value is undefined…
 	return "lightgrey";
