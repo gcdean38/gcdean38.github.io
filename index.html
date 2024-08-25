@@ -169,7 +169,7 @@ formatPct = d3.format(".2%")
 var mousemove = function(d){
   tooltip
           .style("opacity", 1)
-          .html("<b>"+(d.properties.name)+"'s</b> minimum wage is <b>$"+formatNum(d.properties.dem_win)+"</b>/hour.")
+          .html("<b> Harris</b> wins "+(d.properties.name)+" "+formatNum(d.properties.dem_win)+"%</b> of the time.")
           .style("left", (d3.mouse(this)[0]+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
           .style("top", (d3.mouse(this)[1]-30) + "px")
 		  
@@ -248,13 +248,13 @@ var gradient = defs.append("linearGradient")
 gradient.append("stop")
    .attr('class', 'start')
    .attr("offset", "0%")
-   .attr("stop-color", "white")
+   .attr("stop-color", "blue")
    .attr("stop-opacity", 1)
 
 gradient.append("stop")
    .attr('class', 'end')
    .attr("offset", "100%")
-   .attr("stop-color", "green")
+   .attr("stop-color", "red")
    .attr("stop-opacity", 1);
 
    var legend = svg.append("rect")
