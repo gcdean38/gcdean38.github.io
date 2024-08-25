@@ -169,7 +169,7 @@ formatPct = d3.format(".2%")
 var mousemove = function(d){
   tooltip
           .style("opacity", 1)
-          .html("<b> Harris</b> wins "+(d.properties.name)+" "+formatNum(d.properties.dem_win)+"%</b> of the time.")
+          .html("<b> Harris</b> wins "+(d.properties.name)+" "+d.properties.dem_win+"%</b> of the time.")
           .style("left", (d3.mouse(this)[0]+30) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
           .style("top", (d3.mouse(this)[1]-30) + "px")
 		  
@@ -198,16 +198,19 @@ svg.selectAll("path")
 	.style("stroke-width", "1")
 	.style("fill", function(d) {
 
-	// Get data value
-	var dem_win = d.properties.dem_win;
-//var cat = d.properties.cat;
+// Get data value
+    var dem_win = d.properties.dem_win;
 
-	if (dem_win) {
-	//If value exists…
-	return color(dem_win);
-	} else {
-	//If value is undefined…
-	return "lightgrey";
+    if (dem_win !== undefined && dem_win !== null) {
+        // If the value is zero, return red
+        if (dem_win === 0) {
+            return "red";
+        }
+        // If value exists and is not zero, use the color scale
+        return color(dem_win);
+    } else {
+        // If value is undefined or null, return light grey
+        return "lightgrey";
 	}
 })
 .on("mouseover", mouseover)   
