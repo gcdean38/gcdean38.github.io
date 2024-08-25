@@ -276,19 +276,19 @@ gradient.append("stop")
               var wages = svg.append("text")
               .attr("x",width*.55)
               .attr("y",height*.885+30)
-              .text("$5.15")
+              .text("100%")
               .attr("text-anchor","middle")
               var wages1 = svg.append("text")
               .attr("x",width*.55+150)
               .attr("y",height*.885+30)
               .attr('text-anchor',"middle")
-              .text("$15.00")
+              .text("50%")
 
               var wages1 = svg.append("text")
               .attr("x",width*.55+75)
               .attr("y",height*.885+30)
               .attr('text-anchor',"middle")
-              .text("$10.00")
+              .text("0%")
     });
 
 
@@ -304,7 +304,7 @@ svg.append("text")
     .attr("x",width/2)
     .attr("y",height*.05)
     .attr('text-anchor',"middle")
-    .text("Minimum Wage by State")
+    .text("2024 Presidential Projections")
 
 
 
@@ -322,44 +322,7 @@ svg.append("text")
 		.attr('y', height*.995)
 		.attr('x', width)
 		.attr('text-anchor', "end")
-    .text('GEOFFREY DEAN/ASST. GRAPHICS EDITOR')
-
-   
-svg.append("text")
-.attr("class","source")
-.attr("y",height*.99)
-.attr("x",0)
-.attr('text-anchor',"start")
-.text("Source: ")
-
-svg.append('text')
-		.attr('class', 'sources')
-		.attr('y', height*.99)
-		.attr('x', width*.05)
-		.attr('text-anchor', 'start')
-        .style("fill","blue")
-        .style("text-decoration","underline")
-		.text('Paycor')
-
-		svg.append('text')
-		.attr('class', 'sources')
-		.attr('y', height*.99)
-		.attr('x', width*.1)
-		.attr('text-anchor', 'start')
-        .style("fill","black")
-		.text(', 2021.')
-
-	svg.append("a")
-    .attr("xlink:href", "https://www.paycor.com/resource-center/minimum-wage-by-state")
-    .attr("target","_blank")
-    .append("rect")  
-    .attr('y', height-12)
-	.attr('x', width*.05)
-    .attr("height", 9)
-    .attr("width",width*.1- width*.05)
-    .style("fill", "white")
-    .style("opacity",.0)
-    .style("stroke","black")
+    .text('GEOFFREY DEAN | Twitter: @geoffreycdean')
 });
 </script>
 </body>
