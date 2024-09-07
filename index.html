@@ -120,7 +120,7 @@ var svg = d3.select("body")
 
 
 // Load in my states data!
-d3.csv("https://raw.githubusercontent.com/gcdean38/election-forecast/main/simulation_results_8_24_2024.csv", function(d) {
+d3.csv("https://raw.githubusercontent.com/gcdean38/election-forecast/main/simulation_results_9_6_2024.csv", function(d) {
 ; // setting the range of the input data
 return { state: d.state, dem_win: +d.dem_win,}
       },function(data) {
@@ -285,13 +285,13 @@ gradient.append("stop")
               .attr("x",width*.55+150)
               .attr("y",height*.885+30)
               .attr('text-anchor',"middle")
-              .text("50%")
+              .text("0%")
 
               var wages1 = svg.append("text")
               .attr("x",width*.55+75)
               .attr("y",height*.885+30)
               .attr('text-anchor',"middle")
-              .text("0%")
+              .text("50%")
     });
 
 
